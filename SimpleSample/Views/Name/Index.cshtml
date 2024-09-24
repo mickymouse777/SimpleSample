@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Add Name";
+}
+
+<h2>Add a Name to Azure Table Storage</h2>
+
+<form asp-controller="Name" asp-action="Submit" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required />
+    <button type="submit">Submit</button>
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <p style="color: green;">@ViewBag.Message</p>
+}
