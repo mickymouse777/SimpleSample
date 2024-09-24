@@ -1,13 +1,9 @@
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
 using Azure.Data.Tables;
-using System.Threading.Tasks;
-using System.IO;
 using System.Text.Json;
 using Azure;
-using System;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
 
 namespace FunctionApp
 {
@@ -25,8 +21,8 @@ namespace FunctionApp
                 return new BadRequestObjectResult("Invalid input");
             }
 
-            // Azure Table Storage connection settings
-            string connectionString = "DefaultEndpointsProtocol=https;AccountName=mickgstorage;AccountKey=133vjGh69KWjSN6f3qEhU2smr2Xtaee4SPrdmrAtsIbclUkeBsIohqbCoz59XgkQD+R2rJA1D7N7+AStj30JKw==;EndpointSuffix=core.windows.net";
+            
+            string connectionString = "use_your_own_storage.student.net";
             var tableClient = new TableClient(connectionString, "NamesTable");
             await tableClient.CreateIfNotExistsAsync();
 
